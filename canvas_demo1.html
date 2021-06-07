@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas" ></canvas>
+    <script>
+        let canvas = document.getElementById('canvas')
+        canvas.width = document.documentElement.clientWidth
+        canvas.height = document.documentElement.clientHeight
+        var ctx = canvas.getContext('2d')
+        ctx.fillStyle = 'blue'
+        let painting = false
+        canvas.onmousedown = () =>{
+            painting = true
+            console.log(painting)
+        }
+        canvas.onmouseup = () =>{
+            painting = false
+        }
+        canvas.onmousemove = (e) =>{
+            console.log(painting)
+            if(painting){
+                ctx.fillRect(e.clientX-5, e.clientY-5,10,10)
+            }
+        }
+    </script>
+</body>
+</html>
